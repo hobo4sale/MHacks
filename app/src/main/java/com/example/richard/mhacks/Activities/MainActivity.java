@@ -1,42 +1,25 @@
 package com.example.richard.mhacks.Activities;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.Toast;
 
 import com.example.richard.mhacks.Fragments.BoysFragment;
 import com.example.richard.mhacks.Fragments.EventsFragment;
-import com.example.richard.mhacks.Fragments.MapFragment;
 import com.example.richard.mhacks.Fragments.NavigationDrawerFragment;
 import com.example.richard.mhacks.R;
 import com.facebook.AppEventsLogger;
-import com.facebook.Request;
-import com.facebook.Response;
 import com.facebook.Session;
-import com.facebook.model.GraphUser;
-import com.google.gson.GsonBuilder;
-
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
-import java.util.Map;
+import com.google.android.gms.maps.SupportMapFragment;
 
 
 public class MainActivity extends ActionBarActivity
@@ -100,7 +83,7 @@ public class MainActivity extends ActionBarActivity
                 fragment = new BoysFragment();
                 break;
             case 2:
-                fragment = new MapFragment();
+                fragment = new SupportMapFragment();
                 break;
         }
         fragmentManager.beginTransaction()
