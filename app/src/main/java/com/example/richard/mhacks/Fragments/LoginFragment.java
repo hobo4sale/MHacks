@@ -60,6 +60,11 @@ public class LoginFragment extends Fragment {
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (state.isOpened()) {
             Log.i(TAG, "Logged in...");
+            if (session != null && session.isOpened()) {
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                startActivity(intent);
+            }
         } else if (state.isClosed()) {
             Log.i(TAG, "Logged out...");
         }
@@ -69,13 +74,6 @@ public class LoginFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Session session = Session.getActiveSession();
-
-        if (session != null && session.isOpened()) {
-            Intent intent = new Intent(getActivity(), MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        }
 
         if (session != null &&
                 (session.isOpened() || session.isClosed()) ) {
